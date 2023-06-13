@@ -1,6 +1,8 @@
 package com.develogical;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class QueryProcessor {
 
@@ -39,6 +41,19 @@ public class QueryProcessor {
       }
       
       return sum+"";
+    }
+
+    if (query.toLowerCase().contains("largest")) {
+      String s1 = query.split(":")[1];
+      String s2 = s1.substring(0, s1.length()-1);
+      String[] s = s2.split(",");
+      ArrayList<Integer> list = new ArrayList<>();
+      for(String st: s) {
+        list.add(Integer.valueOf(st));
+      }
+      Collections.sort(list, Collections.reverseOrder());   
+      
+      return list.get(0)+"";
     }
 
     return "";

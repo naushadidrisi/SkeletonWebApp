@@ -29,4 +29,10 @@ public class QueryProcessorTest {
   public void knowsAboutSum() throws Exception {
     assertThat(queryProcessor.process("What is 81 plus 72?"), containsString("153"));
   }
+
+  @Test
+  public void knowsAboutLargest() throws Exception {
+    assertThat(queryProcessor.process("Which of the following numbers is the largest:23,1,50?"), containsString("50"));
+  }
+
 }
